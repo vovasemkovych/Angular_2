@@ -15,11 +15,21 @@
     </div>
 
     <button class="btn btn3" (click)="addToCart(product)">Add to Cart</button>
-    <button class=" btn btn-close" (click)="deleteProduct(product.id)">X</button>
+    <button class=" btn btn-close"  (click)="deleteProduct(product.id)">X</button>
   </div>
 
   <!-- Notification -->
-  <div class="notification" [ngClass]="{ 'show': notificationVisible }">
+  <div class="notification" [ngClass]="{ 'show': cartNotificationVisible }">
     Item added to cart!
+  </div>
+  
+  <!-- Notification for Unauthorized Deletion -->
+  <div class="notification" [ngClass]="{ 'show': deleteNotificationVisible }">
+    {{ NotificationMessage }}
+  </div>
+
+  <!-- Notification for Unauthorized Cart Operation -->
+  <div class="notification" [ngClass]="{ 'show': cartNotLoggedNotificationVisible }">
+    {{ NotificationMessage }}
   </div>
 </div>
