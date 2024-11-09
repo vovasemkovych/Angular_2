@@ -1,0 +1,25 @@
+<div class="product-list">
+  <div *ngFor="let product of products" class="product-card">
+    <img class="product-image" [src]="product.image" alt="product image" />
+    <h3 class="product-title">{{ product.title }}</h3>
+    <p class="product-price">Price: ${{ product.price }}</p>
+    <button class="btn btn1" (click)="toggleOverlay(product)">More Info</button>
+
+    <!-- Overlay Content -->
+    <div class="overlay" *ngIf="selectedProduct === product">
+      <div class="overlay-content">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <button class="btn btn2" (click)="closeOverlay()">Close</button>
+      </div>
+    </div>
+
+    <button class="btn btn3" (click)="addToCart(product)">Add to Cart</button>
+    <button class=" btn btn-close" (click)="deleteProduct(product.id)">X</button>
+  </div>
+
+  <!-- Notification -->
+  <div class="notification" [ngClass]="{ 'show': notificationVisible }">
+    Item added to cart!
+  </div>
+</div>

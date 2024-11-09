@@ -1,0 +1,35 @@
+.cart-container {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-item p {
+    margin: 0;
+    color: #333;
+  }
+  .cart-item button {
+    background-color: #ff4136; // Red color for Remove button
+    color: white;
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cart-item button:hover {
+    background-color: #e03228;
+  }
+  

@@ -1,0 +1,20 @@
+<div *ngFor="let item of cartItems" class="cart-item">
+  <img [src]="item.image" alt="product image" width="50" />
+  <div>
+    <p>{{ item.title }}</p>
+    <p>Price per Item: ${{ item.price }}</p>
+    <p>Quantity: {{ item.quantity }}</p>
+    <p>Total: ${{ item.price * item.quantity }}</p>
+  </div>
+  <div class="cart-controls">
+    <button (click)="removeFromCart(item.id)">Remove One</button>
+    <button (click)="addToCart(item)">Add One More</button>
+  </div>
+</div>
+
+<div class="cart-total">
+  <p>Total Price: ${{ totalPrice }}</p>
+</div>
+<button *ngIf="cartItems.length > 0" (click)="clearCart()" class="clear-cart-btn">
+  Clear All Items
+</button>

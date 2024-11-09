@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+  <h2>Dashboard</h2>
+  <div *ngFor="let user of users" class="user-card">
+    <h3>{{ user.username }}</h3>
+    <p>Email: {{ user.email }}</p>
+    
+
+  </div>
+</div>
+
+<!-- Show the user list and delete button only for admin -->
+<div *ngIf="authService.isAdmin" class="admin-container">
+  <h2>All Users</h2>
+  <table class="admin-user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td><button (click)="deleteUser(user.username)" class="delete-button">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

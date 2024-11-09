@@ -1,0 +1,12 @@
+<div class="form-container">
+    <h2>Add New Product</h2>
+    <input [(ngModel)]="newProduct.title" placeholder="Title" class="form-input" />
+    <input [(ngModel)]="newProduct.price" placeholder="Price" type="number" class="form-input" />
+    <input [(ngModel)]="newProduct.category" placeholder="Category" class="form-input" />
+    <textarea [(ngModel)]="newProduct.description" placeholder="Description" class="form-input"></textarea>
+    <input [(ngModel)]="newProduct.image" placeholder="Image URL" class="form-input" />
+    <button (click)="addProduct()" class="btn">Add Product</button>
+
+<!-- <button (click)="onAddNewProduct()">Add New Product</button> -->
+  </div>
+  

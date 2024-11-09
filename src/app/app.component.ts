@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular-2';
+  constructor(public authService: AuthService, private router: Router) {}
+
+  toggleLogin() {
+    if (this.authService.isLoggedIn) {
+      this.authService.logout();
+    } else {
+      // Redirect to login page
+      this.router.navigate(['/login']);
+    }
+  }
 }
