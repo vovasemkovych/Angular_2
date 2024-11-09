@@ -47,7 +47,6 @@ export class AuthService {
     let user = this.users.find(u => u.username === username && u.email === email && u.password === password);
   
     if (!user) {
-      // If the user doesn't exist, we can conditionally assign the 'admin' role for specific users
       if (email === 'admin@admin.com') {
         user = { username, email, password, role: 'admin', cart: [] };
       } else {
@@ -75,7 +74,7 @@ export class AuthService {
     this.loggedInUser = null;
     localStorage.removeItem('cart'); // Clear cart data on logout
     localStorage.removeItem('loggedInUser');
-    window.location.reload();
+    // window.location.reload();
     this.router.navigate(['/login']);
   }
   private updateCart(): void {
@@ -86,7 +85,7 @@ export class AuthService {
   // Add item to cart
   addToCart(item: any): void {
     if (this.loggedInUser) {
-      console.log('Adding item to cart:', item); // Log item being added
+      // console.log('Adding item to cart:', item); // Log item being added
       this.saveCart(); // Save cart after adding an item
       this.cartSubject.next(this.loggedInUser.cart);
       this.loggedInUser.cart.push(item);
@@ -143,7 +142,7 @@ export class AuthService {
 
   // Delete a user by username
   deleteUser(username: string): Observable<void> {
-    // Simulate a deletion process (in a real API, you would make a delete request)
+    
     this.users = this.users.filter(user => user.username !== username);
     this.saveUsers();
     return new Observable<void>((observer) => {
@@ -162,8 +161,7 @@ export class AuthService {
   // Load users from localStorage (or API if applicable)
   private loadUsers(): void {
     const usersData = localStorage.getItem('users');
-    console.log('Loaded users from localStorage:', usersData); // Log the users loaded from localStorage
-
+    console.log('Loaded users from localStorage:', usersData); 
     if (usersData) {
       this.users = JSON.parse(usersData);
     } else {
